@@ -1,4 +1,4 @@
-FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04
+FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
 
 ARG USER_NAME
 ARG USER_PASSWORD
@@ -12,7 +12,7 @@ RUN usermod -aG sudo $USER_NAME
 RUN yes $USER_PASSWORD | passwd $USER_NAME
 
 # set uid and gid to match those outside the container
-RUN usermod -u $USER_ID $USER_NAME 
+RUN usermod -u $USER_ID $USER_NAME
 RUN groupmod -g $USER_GID $USER_NAME
 
 WORKDIR /home/$USER_NAME

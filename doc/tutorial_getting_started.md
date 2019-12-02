@@ -10,7 +10,7 @@ We'll use the data and approach from our [paper, "Dense Object Nets"](https://ar
 - An Ubuntu machine (we've tested 14.04, 16.04, 18.04) with an Nvidia GPU (recommended at least 4 GB of memory)
 - Python 2 and a handful of Python 2 modules (`yaml`, etc) to run initial scripts
 - Everything else will be set up automatically inside an `nvidia-docker` container.
-- Inside the docker container we use CUDA 10 and Pytorch 1.1. If you would like to update to a different CUDA or pytorch version you can modify the [dockerfile](../docker/pytorch-dense-correspondence.dockerfile) for which CUDA version to inherit from. To modify which pytorch version gets installed see [install_pytorch.sh](../docker/install_pytorch.sh). 
+- Inside the docker container we use CUDA 10 and Pytorch 1.1. If you would like to update to a different CUDA or pytorch version you can modify the [dockerfile](../docker/pytorch-dense-correspondence.dockerfile) for which CUDA version to inherit from. To modify which pytorch version gets installed see [install_pytorch.sh](../docker/install_pytorch.sh).
 
 ## Step 0: Clone the repo
 
@@ -20,7 +20,7 @@ git clone https://github.com/RobotLocomotion/pytorch-dense-correspondence.git
 
 ## Step 1: Download the data
 
-Decide where you want to download the data to and then use our provided script to 
+Decide where you want to download the data to and then use our provided script to
 download a subset.  (This script will only download a 5.3 GB subset of data.  The full dataset is about 100 GB.)
 
 ```
@@ -49,7 +49,9 @@ hostname:
 
 ## Step 3: Build the docker image
 
-If you already have `nvidia-docker` installed, then you can just run:
+~~If you already have `nvidia-docker` installed, then you can just run:~~
+
+See [here](docker_build_instructions.md) for how to build a docker image, then:
 
 ```
 cd pytorch-dense-correspondence
@@ -58,8 +60,7 @@ cd docker
 ./docker_build.py
 ```
 
-If instead you are new to `nvidia-docker`, we have a dedicated separate page for how to build a docker image for this project.  See [here](docker_build_instructions.md),
-and when you're done, head on back to this page.  
+~~If instead you are new to `nvidia-docker`, we have a dedicated separate page for how to build a docker image for this project.  See [here](docker_build_instructions.md), and when you're done, head on back to this page.  ~~
 
 While the docker image is building (will take a handful of minutes), you can start on the next step.
 
@@ -99,7 +100,7 @@ Run each of the cells in the notebook.  The final cell will run the quantitative
 
 ## Step 8: Qualitatively evaluate the network
 
-Open the notebook for qualitative evaluation, [`dense_correspondence/evaluation/evaluation_qualitative_tutorial.ipynb`](../dense_correspondence/evaluation/evaluation_qualitative_tutorial.ipynb). 
+Open the notebook for qualitative evaluation, [`dense_correspondence/evaluation/evaluation_qualitative_tutorial.ipynb`](../dense_correspondence/evaluation/evaluation_qualitative_tutorial.ipynb).
 
 Run each of the cells here to see descriptor plots!
 
